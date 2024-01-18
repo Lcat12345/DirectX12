@@ -7,6 +7,7 @@ void SwapChain::Init(const WindowInfo& info, ComPtr<IDXGIFactory> dxgi, ComPtr<I
 	// 이전에 만든 정보 날린다
 	_swapChain.Reset();
 
+	// swap chain desc를 채운다.
 	DXGI_SWAP_CHAIN_DESC sd;
 	sd.BufferDesc.Width = static_cast<uint32>(info.width); // 버퍼의 해상도 너비
 	sd.BufferDesc.Height = static_cast<uint32>(info.height); // 버퍼의 해상도 높이
@@ -24,8 +25,10 @@ void SwapChain::Init(const WindowInfo& info, ComPtr<IDXGIFactory> dxgi, ComPtr<I
 	sd.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD; // 전면 후면 버퍼 교체 시 이전 프레임 정보 버림
 	sd.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
 
+	// 스왑 체인을 만든다.
 	dxgi->CreateSwapChain(cmdQueue.Get(), &sd, &_swapChain);
 
+	// 반복문을 돌며 만든 버퍼를 리소스에 저장
 	for (int32 i = 0; i < SWAP_CHAIN_BUFFER_COUNT; i++)
 		_swapChain->GetBuffer(i, IID_PPV_ARGS(&_renderTargets[i]));
 }
