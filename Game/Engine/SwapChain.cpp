@@ -22,4 +22,10 @@ void SwapChain::Init(const WindowInfo& info, ComPtr<Device> _device)
 	// 스왑 체인 만들기
 	_device->GetDXGI()->CreateSwapChain(_device.Get(), &_scd, IID_PPV_ARGS(&_swapChain));
 
+	// 반복문으로 버퍼 채우기
+	for (int i = 0; i < SWAP_CHAIN_BUFFER_COUNT; ++i)
+	{
+
+	}
+
 }
