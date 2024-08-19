@@ -4,6 +4,3 @@
 
 unique_ptr<Engine> GEngine = make_unique<Engine>();
 
-void HelloEngine()
-{
-}

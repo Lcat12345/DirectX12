@@ -44,8 +44,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_CLIENT));
 
     MSG msg;
-    GWindowInfo.width = 800;
-    GWindowInfo.height = 600;
+    GWindowInfo.width = 1920;
+    GWindowInfo.height = 1080;
     GWindowInfo.windowed = true;
 
     unique_ptr<Game> game = make_unique<Game>();
