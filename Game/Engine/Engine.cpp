@@ -22,7 +22,7 @@ void Engine::Init(const WindowInfo& info)
 	_device->Init();
 	_cmdQueue->Init(_device->GetDevice(), _swapChain);
 	_swapChain->Init(info, _device->GetDevice(), _device->GetDXGI(), _cmdQueue->GetCmdQueue());
-	_rootSignature->Init(_device->GetDevice());
+	_rootSignature->Init();
 	_cb->Init(sizeof(Transform), 256); // draw call과 관련있음
 	_tableDescHeap->Init(256);
 }
