@@ -50,6 +50,16 @@ void Game::Update()
 
 	shader->Update();
 
+		{
+		Transform t;
+		t.offset = Vec4(0.25f, 0.25f, 0.1f, 0.0f);
+		mesh->SetTransform(t);
+
+		mesh->SetTexture(texture);
+
+		mesh->Render();
+	}
+
 	{
 		Transform t;
 		t.offset = Vec4(0.0f, 0.0f, 0.0f, 0.0f);
@@ -59,6 +69,7 @@ void Game::Update()
 
 		mesh->Render();
 	}
+
 
 
 	GEngine->RenderEnd();
