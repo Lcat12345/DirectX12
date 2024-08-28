@@ -27,6 +27,9 @@ public:
 	void SetLocalRotation(const Vec3& rotation) { _localRotation = rotation; }
 	void SetLocalScale(const Vec3& scale) { _localScale = scale; }
 
+	// TEMP
+	float GetBoundingSphereRadius() { return max(max(_localScale.x, _localScale.y), _localScale.z); }
+
 public:
 	void SetParent(shared_ptr<Transform> parent) { _parent = parent; }
 	weak_ptr<Transform> GetParent() { return _parent; }
